@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eunyul | Portfolio</title>
+  <title>Eunyul Jung | Portfolio</title>
   <style>
-    /* 학우분과 동일한 스타일 구조 */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { font-family: Inter, -apple-system, sans-serif; background: #070812; color: #f4f4f8; line-height: 1.6; overflow-x: hidden; }
@@ -38,6 +37,7 @@
     
     .btn { padding: 13px 18px; border-radius: 999px; font-weight: 700; display: inline-block; text-align: center; }
     .btn-primary { background: linear-gradient(135deg, #ffffff, #9aa8ff 55%, #ff7ac8); color: #080914; }
+    .glass { background: rgba(255,255,255,0.055); border: 1px solid rgba(255,255,255,0.11); padding: 42px; border-radius: 30px; }
   </style>
 </head>
 <body>
@@ -62,39 +62,47 @@
         <div>
           <div class="eyebrow"><span class="dot"></span> Dance Major · SKKU</div>
           <h1><span class="gradient-text">Eunyul Jung</span><br />Portfolio</h1>
-          <p>I am a dance major at Sungkyunkwan University, exploring the intersection of movement, performance choreography, and data science. My work focuses on building digital environments and dashboards that capture and analyze trends in the performing arts.</p>
+          <p>I am a dance major at Sungkyunkwan University, bridging the gap between artistic movement and data science. I specialize in visualizing performing arts trends and developing digital tools to manage and analyze dance performance data.</p>
           <a class="btn btn-primary" href="#projects">View Projects</a>
         </div>
-
         <aside class="hero-card">
-          <div class="profile-mark">EY</div>
+          <div class="profile-mark">EJ</div>
           <div class="info-list">
             <div class="info-item"><small>Name</small><strong>Eunyul Jung</strong></div>
             <div class="info-item"><small>Major</small><strong>Dance at SKKU</strong></div>
-            <div class="info-item"><small>Focus</small><strong>Choreography · Data Viz · Web Apps</strong></div>
+            <div class="info-item"><small>Focus</small><strong>Choreography · Data Viz · Streamlit</strong></div>
           </div>
         </aside>
       </div>
     </section>
 
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="glass" style="margin-top: 20px;">
+                <p>As a student of both dance and data, I believe in the power of technology to expand the horizon of performance arts. I focus on creating intuitive dashboards that help audiences and creators understand the ecosystem of dance performances. My practice integrates movement theory with quantitative analysis to provide new insights into the performing arts industry.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="projects">
       <div class="container">
         <h2>Projects</h2>
-        <div class="projects-grid">
+        <div class="projects-grid" style="margin-top: 30px;">
           <article class="project-card">
             <span class="project-number">01</span>
             <h3>K-Dance Stage Hub</h3>
-            <p>An interactive Streamlit dashboard analyzing Korean dance performance schedules, ticket values, and venue patterns.</p>
+            <p>An interactive data visualization platform analyzing national dance performance schedules and venue ticket data using Streamlit and Plotly.</p>
           </article>
           <article class="project-card">
             <span class="project-number">02</span>
-            <h3>Datahub Deployment</h3>
-            <p>A research-based project on optimizing performance data and creating automated digital tools for artists.</p>
+            <h3>Performance Data Analysis</h3>
+            <p>A research project focused on building automated data pipelines for dance companies to track audience trends and performance frequency.</p>
           </article>
           <article class="project-card">
             <span class="project-number">03</span>
-            <h3>Movement & Tech</h3>
-            <p>Ongoing practice using moving images and digital research to explore new forms of contemporary dance presentation.</p>
+            <h3>Digital Choreography Tool</h3>
+            <p>Experimental development of web-based tools that assist in documenting movement sequences and choreography structures.</p>
           </article>
         </div>
       </div>
@@ -104,8 +112,8 @@
       <div class="container">
         <div class="contact-box glass">
           <h2>Contact</h2>
-          <p>I am open to conversations about performance planning, data visualization, and collaborative art projects.</p>
-          <a class="btn btn-primary" href="mailto:jungeunyul@skku.edu">jungeunyul@skku.edu</a>
+          <p>I am open to collaborations in data-driven art management, performance research, or any creative tech project.</p>
+          <a class="btn btn-primary" style="margin-top:20px;" href="mailto:your-email@skku.edu">Contact Me</a>
         </div>
       </div>
     </section>
