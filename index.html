@@ -1,258 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jung Eun-yul | Creative Portfolio</title>
-    <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
-            --nav-bg: rgba(15, 23, 42, 0.8);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jung Eun-yul | Creative Portfolio</title>
+  <style>
+    :root {
+        --bg-color: #0f172a;
+        --card-bg: #1e293b;
+        --text-primary: #f8fafc;
+        --text-secondary: #94a3b8;
+        --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, sans-serif;
-        }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    body {
+        font-family: 'Inter', -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
+    /* 깃허브 페이지 배경 디자인 유지 */
+    body::before {
+      content: ""; position: fixed; inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.15), transparent 40%);
+      pointer-events: none; z-index: -2;
+    }
 
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--nav-bg);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
 
-        .logo {
-            font-weight: 800;
-            font-size: 1.5rem;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+    .logo { font-weight: 800; font-size: 1.2rem; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-links { display: flex; gap: 24px; font-size: 0.9rem; color: var(--text-secondary); }
+    .nav-links a:hover { color: #fff; }
 
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: 0.3s;
-            font-size: 0.9rem;
-        }
+    /* 히어로 섹션 */
+    .hero { min-height: 80vh; display: grid; place-items: center; padding: 100px 0; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; }
+    
+    h1 { font-size: 4rem; margin-bottom: 1rem; line-height: 1.1; }
+    .major-tag { background: var(--accent-gradient); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 600; display: inline-block; margin-bottom: 20px; }
 
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
+    /* 카드 스타일 */
+    .card { background: var(--card-bg); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.05); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    
+    .btn { padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 600; display: inline-block; margin-top: 1rem; font-size: 0.85rem; }
+    .btn-primary { background: var(--accent-gradient); color: white; }
+    .btn-secondary { border: 1px solid rgba(255,255,255,0.2); color: var(--text-primary); margin-left: 10px; }
 
-        section {
-            padding: 100px 10%;
-            min-height: 80vh;
-        }
+    .skills-container { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+    .skill-badge { background: rgba(255,255,255,0.05); padding: 0.5rem 1.2rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1); }
 
-        .hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.1), transparent);
-        }
-
-        h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-
-        .major-tag {
-            background: var(--accent-gradient);
-            padding: 0.2rem 1rem;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: #8b5cf6;
-        }
-
-        .btn-container {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .btn {
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: 0.2s;
-            text-align: center;
-            flex: 1;
-        }
-
-        .btn-primary {
-            background: var(--accent-gradient);
-            color: white;
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-primary);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .skill-badge {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 4rem;
-            color: var(--text-secondary);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-        }
-    </style>
+    footer { text-align: center; padding: 4rem; color: var(--text-secondary); border-top: 1px solid rgba(255, 255, 255, 0.1); }
+  </style>
 </head>
 <body>
 
-    <nav>
+  <header>
+    <div class="container">
+      <nav>
         <div class="logo">EUNYUL.LOG</div>
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
         </div>
-    </nav>
+      </nav>
+    </div>
+  </header>
 
+  <main class="container">
     <section class="hero" id="about">
-        <span class="major-tag">Dance Major at Sungkyunkwan University</span>
-        <h1>Hi, I'm Jung Eun-yul</h1>
-        <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 600px;">
-            I am a dance major at Sungkyunkwan University, exploring the intersection of movement, choreography, and data science. 
-            I focus on building data hubs and interactive dashboards that visualize performance data and schedules to innovate performing arts management.
-        </p>
+        <div class="hero-grid">
+            <div>
+                <span class="major-tag">Dance Major at SKKU</span>
+                <h1>Hi, I'm Jung Eun-yul</h1>
+                <p style="color: var(--text-secondary);">
+                    I am a dance major exploring the intersection of movement and data science. 
+                    I focus on creating interactive dashboards that visualize the value and trends of performing arts.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Jung Eun-yul</h3>
+                <p style="color: var(--text-secondary); margin-top:10px;">Dance Student & Developer</p>
+                <div style="margin-top:20px; font-size: 0.9rem;">
+                    <p>Major: Dance at SKKU</p>
+                    <p>Focus: Performance Planning & Data Viz</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="projects">
         <h2>My Projects</h2>
-        <div class="grid">
+        <div class="grid" style="margin-top: 2rem;">
             <div class="card">
-                <div>
-                    <h3>🩰 K-Dance Stage Hub</h3>
-                    <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 0.95rem;">
-                        An integrated dashboard project tracking and comparing domestic dance performance information, venues, dates, and ticket prices in Korea using Streamlit.
-                    </p>
-                </div>
-                <div class="btn-container">
-                    <a href="https://performance-schedule.streamlit.app/" target="_blank" class="btn btn-primary">Live Demo</a>
-                    <a href="https://github.com/Jungeunyul/performance-schedule" target="_blank" class="btn btn-secondary">GitHub</a>
-                </div>
+                <h3>🩰 K-Dance Stage Hub</h3>
+                <p style="color: var(--text-secondary); margin-top: 1rem;">Integrated dashboard for dance performance information and ticket analysis.</p>
+                <a href="https://performance-schedule.streamlit.app/" class="btn btn-primary">Live Demo</a>
+                <a href="https://github.com/Jungeunyul/performance-schedule" class="btn btn-secondary">GitHub</a>
             </div>
-            
             <div class="card">
-                <div>
-                    <h3>🚀 My First Datahub</h3>
-                    <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 0.95rem;">
-                        A development practice environment focusing on data sync and Streamlit web application deployment pipelines in collaboration with GitHub.
-                    </p>
-                </div>
-                <div class="btn-container">
-                    <a href="https://githubcolab.com/Jungeunyul/my-first-datahub/blob/main/Week09_Practice.ipynb" target="_blank" class="btn btn-primary">Open in Colab</a>
-                    <a href="https://github.com/Jungeunyul/my-first-datahub" target="_blank" class="btn btn-secondary">GitHub</a>
-                </div>
+                <h3>🚀 My First Datahub</h3>
+                <p style="color: var(--text-secondary); margin-top: 1rem;">Deployment practice for Streamlit web apps and GitHub pipeline management.</p>
+                <a href="https://github.com/Jungeunyul/my-first-datahub" class="btn btn-primary">GitHub</a>
             </div>
         </div>
     </section>
 
     <section id="skills">
-        <h2>Technical Skills & Artistry</h2>
+        <h2>Technical Skills</h2>
         <div class="skills-container">
-            <span class="skill-badge" style="border-color: #8b5cf6;">Python</span>
-            <span class="skill-badge" style="border-color: #d946ef;">Streamlit</span>
-            <span class="skill-badge">Plotly (Data Viz)</span>
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">Streamlit</span>
+            <span class="skill-badge">Plotly</span>
             <span class="skill-badge">GitHub</span>
             <span class="skill-badge">Choreography</span>
             <span class="skill-badge">Performance Planning</span>
-            <span class="skill-badge">Fashion Identity Analysis</span>
         </div>
     </section>
+  </main>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p style="color: var(--text-secondary);">Feel free to reach out for collaborations or inquiries at the intersection of Tech and Dance.</p>
-        <a href="mailto:jungeunyul@skku.edu" style="display: inline-block; margin-top: 2rem; padding: 1rem 2rem; background: var(--accent-gradient); color: white; text-decoration: none; border-radius: 10px; font-weight: bold;">Send Email</a>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Jung Eun-yul. All rights reserved.</p>
-    </footer>
+  <footer>
+    <p>&copy; 2026 Jung Eun-yul. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
