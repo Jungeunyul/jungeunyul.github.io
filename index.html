@@ -3,68 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jung Eun-yul | Creative Portfolio</title>
+  <title>Eunyul | Portfolio</title>
   <style>
-    :root {
-        --bg-color: #0f172a;
-        --card-bg: #1e293b;
-        --text-primary: #f8fafc;
-        --text-secondary: #94a3b8;
-        --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
-    }
-
+    /* 학우분과 동일한 스타일 구조 */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
-    body {
-        font-family: 'Inter', -apple-system, sans-serif;
-        background-color: var(--bg-color);
-        color: var(--text-primary);
-        line-height: 1.6;
-        overflow-x: hidden;
-    }
-
-    /* 깃허브 페이지 배경 디자인 유지 */
-    body::before {
-      content: ""; position: fixed; inset: 0;
-      background: radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.15), transparent 40%);
-      pointer-events: none; z-index: -2;
-    }
-
+    body { font-family: Inter, -apple-system, sans-serif; background: #070812; color: #f4f4f8; line-height: 1.6; overflow-x: hidden; }
+    
+    /* 배경 디자인 */
+    body::before { content: ""; position: fixed; inset: 0; background: radial-gradient(circle at 20% 20%, rgba(138, 92, 246, 0.28), transparent 32%), radial-gradient(circle at 80% 10%, rgba(0, 212, 255, 0.18), transparent 30%), radial-gradient(circle at 50% 90%, rgba(255, 95, 162, 0.16), transparent 34%); pointer-events: none; z-index: -2; }
+    
     a { color: inherit; text-decoration: none; }
     .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
-
-    header {
-      position: sticky; top: 0; z-index: 10;
-      backdrop-filter: blur(12px);
-      background: rgba(15, 23, 42, 0.8);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
+    
+    header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(18px); background: rgba(7, 8, 18, 0.72); border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
     nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
-    .logo { font-weight: 800; font-size: 1.2rem; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .nav-links { display: flex; gap: 24px; font-size: 0.9rem; color: var(--text-secondary); }
-    .nav-links a:hover { color: #fff; }
-
-    /* 히어로 섹션 */
-    .hero { min-height: 80vh; display: grid; place-items: center; padding: 100px 0; }
-    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; }
+    .logo { font-weight: 800; letter-spacing: -0.04em; font-size: 1.1rem; }
+    .logo span { color: #9aa8ff; }
+    .nav-links { display: flex; gap: 24px; font-size: 0.92rem; color: rgba(244, 244, 248, 0.72); }
     
-    h1 { font-size: 4rem; margin-bottom: 1rem; line-height: 1.1; }
-    .major-tag { background: var(--accent-gradient); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 600; display: inline-block; margin-bottom: 20px; }
-
-    /* 카드 스타일 */
-    .card { background: var(--card-bg); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.05); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .hero { min-height: 92vh; display: grid; place-items: center; padding: 96px 0 72px; }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 52px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 999px; background: rgba(255, 255, 255, 0.06); margin-bottom: 24px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(135deg, #9aa8ff, #ff7ac8); }
+    h1 { font-size: clamp(3rem, 9vw, 7rem); line-height: 0.92; letter-spacing: -0.08em; margin-bottom: 28px; }
+    .gradient-text { background: linear-gradient(120deg, #ffffff 0%, #9aa8ff 42%, #ff7ac8 78%); -webkit-background-clip: text; color: transparent; }
     
-    .btn { padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 600; display: inline-block; margin-top: 1rem; font-size: 0.85rem; }
-    .btn-primary { background: var(--accent-gradient); color: white; }
-    .btn-secondary { border: 1px solid rgba(255,255,255,0.2); color: var(--text-primary); margin-left: 10px; }
-
-    .skills-container { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
-    .skill-badge { background: rgba(255,255,255,0.05); padding: 0.5rem 1.2rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1); }
-
-    footer { text-align: center; padding: 4rem; color: var(--text-secondary); border-top: 1px solid rgba(255, 255, 255, 0.1); }
+    .hero-card { position: relative; padding: 28px; border-radius: 32px; background: linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)); border: 1px solid rgba(255,255,255,0.14); }
+    .profile-mark { width: 92px; height: 92px; display: grid; place-items: center; margin-bottom: 72px; border-radius: 28px; background: rgba(7, 8, 18, 0.72); border: 1px solid rgba(255,255,255,0.16); font-size: 2rem; font-weight: 900; }
+    
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .project-card { min-height: 280px; padding: 26px; border-radius: 30px; background: rgba(255,255,255,0.055); border: 1px solid rgba(255,255,255,0.11); }
+    .project-number { width: 44px; height: 44px; border-radius: 16px; background: linear-gradient(135deg, rgba(154,168,255,0.28), rgba(255,122,200,0.2)); display: grid; place-items: center; margin-bottom: 52px; font-weight: 800; }
+    
+    .btn { padding: 13px 18px; border-radius: 999px; font-weight: 700; display: inline-block; text-align: center; }
+    .btn-primary { background: linear-gradient(135deg, #ffffff, #9aa8ff 55%, #ff7ac8); color: #080914; }
   </style>
 </head>
 <body>
@@ -72,7 +45,7 @@
   <header>
     <div class="container">
       <nav>
-        <div class="logo">EUNYUL.LOG</div>
+        <a href="#top" class="logo">Eunyul<span>.</span></a>
         <div class="nav-links">
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
@@ -83,61 +56,59 @@
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero" id="about">
-        <div class="hero-grid">
-            <div>
-                <span class="major-tag">Dance Major at SKKU</span>
-                <h1>Hi, I'm Jung Eun-yul</h1>
-                <p style="color: var(--text-secondary);">
-                    I am a dance major exploring the intersection of movement and data science. 
-                    I focus on creating interactive dashboards that visualize the value and trends of performing arts.
-                </p>
-            </div>
-            <div class="card">
-                <h3>Jung Eun-yul</h3>
-                <p style="color: var(--text-secondary); margin-top:10px;">Dance Student & Developer</p>
-                <div style="margin-top:20px; font-size: 0.9rem;">
-                    <p>Major: Dance at SKKU</p>
-                    <p>Focus: Performance Planning & Data Viz</p>
-                </div>
-            </div>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Dance Major · SKKU</div>
+          <h1><span class="gradient-text">Eunyul Jung</span><br />Portfolio</h1>
+          <p>I am a dance major at Sungkyunkwan University, exploring the intersection of movement, performance choreography, and data science. My work focuses on building digital environments and dashboards that capture and analyze trends in the performing arts.</p>
+          <a class="btn btn-primary" href="#projects">View Projects</a>
         </div>
+
+        <aside class="hero-card">
+          <div class="profile-mark">EY</div>
+          <div class="info-list">
+            <div class="info-item"><small>Name</small><strong>Eunyul Jung</strong></div>
+            <div class="info-item"><small>Major</small><strong>Dance at SKKU</strong></div>
+            <div class="info-item"><small>Focus</small><strong>Choreography · Data Viz · Web Apps</strong></div>
+          </div>
+        </aside>
+      </div>
     </section>
 
     <section id="projects">
-        <h2>My Projects</h2>
-        <div class="grid" style="margin-top: 2rem;">
-            <div class="card">
-                <h3>🩰 K-Dance Stage Hub</h3>
-                <p style="color: var(--text-secondary); margin-top: 1rem;">Integrated dashboard for dance performance information and ticket analysis.</p>
-                <a href="https://performance-schedule.streamlit.app/" class="btn btn-primary">Live Demo</a>
-                <a href="https://github.com/Jungeunyul/performance-schedule" class="btn btn-secondary">GitHub</a>
-            </div>
-            <div class="card">
-                <h3>🚀 My First Datahub</h3>
-                <p style="color: var(--text-secondary); margin-top: 1rem;">Deployment practice for Streamlit web apps and GitHub pipeline management.</p>
-                <a href="https://github.com/Jungeunyul/my-first-datahub" class="btn btn-primary">GitHub</a>
-            </div>
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <span class="project-number">01</span>
+            <h3>K-Dance Stage Hub</h3>
+            <p>An interactive Streamlit dashboard analyzing Korean dance performance schedules, ticket values, and venue patterns.</p>
+          </article>
+          <article class="project-card">
+            <span class="project-number">02</span>
+            <h3>Datahub Deployment</h3>
+            <p>A research-based project on optimizing performance data and creating automated digital tools for artists.</p>
+          </article>
+          <article class="project-card">
+            <span class="project-number">03</span>
+            <h3>Movement & Tech</h3>
+            <p>Ongoing practice using moving images and digital research to explore new forms of contemporary dance presentation.</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    <section id="skills">
-        <h2>Technical Skills</h2>
-        <div class="skills-container">
-            <span class="skill-badge">Python</span>
-            <span class="skill-badge">Streamlit</span>
-            <span class="skill-badge">Plotly</span>
-            <span class="skill-badge">GitHub</span>
-            <span class="skill-badge">Choreography</span>
-            <span class="skill-badge">Performance Planning</span>
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box glass">
+          <h2>Contact</h2>
+          <p>I am open to conversations about performance planning, data visualization, and collaborative art projects.</p>
+          <a class="btn btn-primary" href="mailto:jungeunyul@skku.edu">jungeunyul@skku.edu</a>
         </div>
+      </div>
     </section>
   </main>
-
-  <footer>
-    <p>&copy; 2026 Jung Eun-yul. All rights reserved.</p>
-  </footer>
-
 </body>
 </html>
